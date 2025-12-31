@@ -2,57 +2,64 @@
 // Dark Mode Toggle
 // ============================================
 
-const themeToggle = document.getElementById('themeToggle');
-const themeIcon = document.getElementById('themeIcon');
-const html = document.documentElement;
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const html = document.documentElement;
 
-// Get saved theme or detect system preference
-function getInitialTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        return savedTheme;
+    if (!themeToggle || !themeIcon) {
+        console.error('Theme toggle elements not found');
+        return;
     }
-    // Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-    }
-    return 'light';
-}
 
-// Set theme
-function setTheme(theme) {
-    if (theme === 'dark') {
-        html.setAttribute('data-theme', 'dark');
-        themeIcon.textContent = '☀️';
-        localStorage.setItem('theme', 'dark');
-    } else {
-        html.removeAttribute('data-theme');
-        themeIcon.textContent = '🌙';
-        localStorage.setItem('theme', 'light');
-    }
-}
-
-// Initialize theme on load
-const initialTheme = getInitialTheme();
-setTheme(initialTheme);
-
-// Toggle theme on button click
-themeToggle.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-});
-
-// Listen for system theme changes
-if (window.matchMedia) {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    mediaQuery.addEventListener('change', (e) => {
-        // Only auto-switch if user hasn't manually set a preference
-        if (!localStorage.getItem('theme')) {
-            setTheme(e.matches ? 'dark' : 'light');
+    // Get saved theme or detect system preference
+    function getInitialTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            return savedTheme;
         }
+        // Check system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+        }
+        return 'light';
+    }
+
+    // Set theme
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            html.removeAttribute('data-theme');
+            themeIcon.textContent = '🌙';
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Initialize theme on load
+    const initialTheme = getInitialTheme();
+    setTheme(initialTheme);
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
     });
-}
+
+    // Listen for system theme changes
+    if (window.matchMedia) {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQuery.addEventListener('change', (e) => {
+            // Only auto-switch if user hasn't manually set a preference
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+});
 
 // ============================================
 // Scroll Animations with Intersection Observer
