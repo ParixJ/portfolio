@@ -1,0 +1,187 @@
+# Portfolio Context for Cursor AI
+
+## Developer Profile
+- **Name**: [Your Name]
+- **Age**: 16 years old
+- **Title**: Software Engineer & Machine Learning Enthusiast
+- **Location**: Rajkot, Gujarat, India
+
+## Technical Skills
+
+### Programming Languages
+- Python (Primary)
+- JavaScript/TypeScript
+- SQL
+
+### Backend Development
+- **Flask** - Web application framework (preferred)
+- **FastAPI** - Modern, fast API development (preferred)
+- **Django** - Full-featured web framework (preferred)
+- **PostgreSQL** - Advanced relational database
+- **MySQL** - Relational database management
+- **MongoDB** - NoSQL document database
+- RESTful API design and implementation
+- Database design, optimization, and management
+- ORM usage and raw SQL queries
+
+### Frontend Development
+- **React** - Component-based UI development (preferred)
+- **Node.js** - Server-side JavaScript (preferred)
+- **JavaScript/TypeScript** - Modern web development (preferred)
+- **MERN Stack** - MongoDB, Express, React, Node.js
+- Modern JavaScript (ES6+)
+- Responsive web design
+- State management and component architecture
+
+### Machine Learning & AI
+- **Neural Networks from Scratch** - Built custom implementations without high-level libraries
+- **ML Algorithms from Scratch** - Core algorithm implementations (gradient descent, backpropagation, etc.)
+- **Data Transformer** - Custom tool for dataset transformation and scaling
+- **Mock AutoML System** - Automated machine learning pipeline built from ground up
+- Data preprocessing and feature engineering
+- Model training, evaluation, and optimization
+- Understanding of ML fundamentals at a deep level
+
+### Other Technical Skills
+- Terminal/Command-line applications
+- Git version control
+- API integration
+- Full-stack development
+- Problem-solving and algorithmic thinking
+
+## Academic Interests
+
+### Core Subjects
+- **Mathematics** - Strong foundation and passion
+- **Physics** - Deep interest in physical sciences
+- **Biology** - Secondary interest in life sciences
+
+### Intersection with Technology
+- Learning for cognitive enhancement and knowledge expansion
+- Computational approaches to scientific problems
+- Mathematical modeling and algorithm development
+- Interest in applying ML/AI to solve problems in physics, mathematics, and biology
+- Future goal: Bridging technology with scientific research
+- Building tools and models for scientific computation
+
+## Personal Interests & Hobbies
+
+### Sports
+- **Cricket** - Active player and enthusiast
+- Team sports and competitive spirit
+
+### Intellectual Pursuits
+- STEM subjects exploration
+- Continuous learning in tech and science
+- Building practical applications
+
+## Project Portfolio
+
+### Featured Projects
+
+#### 1. Mock AutoML System (Flagship Project)
+- Built automated machine learning pipeline from scratch
+- Handles end-to-end ML workflow automation
+- Custom implementation without relying on existing AutoML frameworks
+- Demonstrates deep understanding of ML pipelines and automation
+
+#### 2. Custom Neural Networks
+- Implemented neural networks from ground up
+- Built without high-level frameworks (no TensorFlow/PyTorch)
+- Understanding of backpropagation, gradient descent, and optimization
+- Mathematics and linear algebra applied to practical implementation
+
+#### 3. ML Algorithms from Scratch
+- Core machine learning algorithms implemented manually
+- Deep understanding of algorithmic foundations
+- Educational and practical applications
+
+#### 4. Data Transformer Tool
+- User-driven dataset transformation and scaling
+- Preprocessing pipeline for ML workflows
+- Handles various data types and scaling methods
+- Clean interface for data preparation
+
+### Project Categories
+1. **Terminal Applications** - Python-based CLI tools
+2. **Web Applications** - Full-stack projects using Flask/FastAPI/Django
+3. **React Applications** - Modern frontend projects
+4. **MERN Stack Projects** - Full JavaScript stack applications
+5. **Machine Learning Projects** - Custom ML implementations and tools
+
+### Development Approach
+- Building from first principles (scratch implementations)
+- Focus on practical, real-world applications
+- Strong emphasis on both frontend and backend
+- Integration of ML capabilities into web applications
+- Clean, maintainable code practices
+- Deep understanding over framework dependency
+
+## Achievements
+- Built complex ML systems from scratch at age 16
+- Developed production-ready AutoML system independently
+- Self-taught full-stack developer with diverse project portfolio
+- Strong foundation in computer science fundamentals
+- Continuous learner with broad technical skillset
+
+## Current Focus Areas
+- **Research in Machine Learning and AI** - Exploring cutting-edge ML research
+- **Contributing to Diverse Fields** - Applying AI/ML to various domains
+- Advanced machine learning techniques and novel architectures
+- Building tools that democratize ML (like AutoML)
+- Full-stack architecture for ML-powered applications
+- Scientific computing and interdisciplinary applications
+- Algorithm optimization and efficiency
+
+## Professional Goals
+- **AI/ML Research** - Contributing to machine learning research and innovation
+- **Interdisciplinary Applications** - Applying AI to physics, mathematics, biology, and other fields
+- **Open-source Contributions** - Sharing knowledge and tools with the community
+- Building impactful software solutions that solve real-world problems
+- Developing accessible ML tools (democratizing machine learning)
+- Creating bridges between technology and scientific research
+- Continuous learning and pushing boundaries of current understanding
+
+## Design Philosophy
+- **First Principles Thinking** - Building from scratch to understand fundamentals
+- **User-centric design** - Creating intuitive and accessible tools
+- **Performance optimization** - Efficient algorithms and implementations
+- **Code quality and maintainability** - Clean, documented, scalable code
+- **Practical problem-solving** - Real-world applications over theoretical exercises
+- **Continuous learning and adaptation** - Embracing new technologies and methods
+- **Interdisciplinary approach** - Combining insights from multiple fields
+- **Democratization of technology** - Making complex tools accessible
+
+## Portfolio Development Guidelines
+
+### For Cursor AI Assistant
+When helping with portfolio development:
+1. **Emphasize unique achievements**: Building AutoML and neural networks from scratch at 16
+2. **Highlight deep understanding**: Not just framework usage, but fundamental implementations
+3. **Showcase versatility**: Terminal apps, full-stack web, ML research, and scientific computing
+4. **Feature flagship projects**: AutoML system, custom neural networks, data transformer
+5. **Balance technical depth with accessibility**: Explain complex concepts clearly
+6. **Incorporate interdisciplinary interests**: Bridge between tech, math, physics, and biology
+7. **Present forward-thinking vision**: Research goals and contributing to diverse fields
+8. **Use modern, clean design patterns**: Professional yet innovative portfolio design
+9. **Demonstrate problem-solving approach**: From-scratch implementations show deep thinking
+10. **Show learning journey**: Self-taught developer with rapid skill acquisition and breadth
+
+### Tone & Presentation
+- Professional yet approachable
+- Confident but humble
+- Technically precise
+- Demonstrating maturity beyond years
+- Passionate about technology and learning
+
+## Tech Stack Preferences for Portfolio Site
+- **Frontend**: React with modern UI/UX
+- **Styling**: Tailwind CSS or modern CSS frameworks
+- **Backend** (if needed): FastAPI or Node.js
+- **Deployment**: Modern platforms (Vercel, Netlify, etc.)
+- **Features**: Project showcases, blog, interactive demos
+
+---
+
+*Last Updated: December 2025*
+*This context file helps Cursor AI understand the developer's background, skills, and goals for more personalized assistance.*
