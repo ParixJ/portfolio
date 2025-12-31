@@ -17,6 +17,24 @@
     --accent: #2563eb;
     --accent-hover: #1d4ed8;
     --accent-light: #eff6ff;
+}
+
+[data-theme="dark"] {
+    /* Dark Theme Colors */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-card: #1a1a1a;
+    --text-primary: #f5f5f5;
+    --text-secondary: #a3a3a3;
+    --text-tertiary: #737373;
+    --border-color: #2a2a2a;
+    --border-hover: #404040;
+    
+    /* Accent Color (same for both themes) */
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --accent-light: #1e3a8a;
+}
     
     /* Spacing System */
     --spacing-xs: 0.5rem;
@@ -64,6 +82,7 @@ body {
     font-size: var(--font-size-base);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--transition-slow), color var(--transition-slow);
 }
 
 /* ============================================
@@ -108,6 +127,7 @@ p {
     height: var(--nav-height);
     display: flex;
     align-items: center;
+    transition: background-color var(--transition-slow), border-color var(--transition-slow);
 }
 
 .nav-container {
@@ -159,6 +179,36 @@ p {
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: var(--spacing-md);
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent);
+    background: var(--accent-light);
+}
+
+.theme-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform var(--transition-base);
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(15deg);
 }
 
 /* ============================================
@@ -559,6 +609,17 @@ section {
     .nav-links {
         gap: var(--spacing-md);
         font-size: var(--font-size-xs);
+    }
+    
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        padding: 0.375rem;
+        margin-left: var(--spacing-sm);
+    }
+    
+    .theme-icon {
+        font-size: 1rem;
     }
     
     .hero-name {

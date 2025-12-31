@@ -1,4 +1,60 @@
 // ============================================
+// Dark Mode Toggle
+// ============================================
+
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const html = document.documentElement;
+
+// Get saved theme or detect system preference
+function getInitialTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        return savedTheme;
+    }
+    // Check system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+    }
+    return 'light';
+}
+
+// Set theme
+function setTheme(theme) {
+    if (theme === 'dark') {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        html.removeAttribute('data-theme');
+        themeIcon.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+// Initialize theme on load
+const initialTheme = getInitialTheme();
+setTheme(initialTheme);
+
+// Toggle theme on button click
+themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+});
+
+// Listen for system theme changes
+if (window.matchMedia) {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', (e) => {
+        // Only auto-switch if user hasn't manually set a preference
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+}
+
+// ============================================
 // Scroll Animations with Intersection Observer
 // ============================================
 
@@ -65,7 +121,10 @@ window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
     if (currentScroll > 20) {
-        nav.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        nav.style.boxShadow = isDark 
+            ? '0 1px 3px rgba(0, 0, 0, 0.3)' 
+            : '0 1px 3px rgba(0, 0, 0, 0.05)';
     } else {
         nav.style.boxShadow = 'none';
     }
