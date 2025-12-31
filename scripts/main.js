@@ -1,52 +1,10 @@
 // ============================================
-// Cursor Gradient Effect
-// ============================================
-
-const cursorGradient = document.getElementById('cursorGradient');
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-let targetX = mouseX;
-let targetY = mouseY;
-
-// Smooth cursor tracking with requestAnimationFrame
-function updateCursorGradient() {
-    // Smooth interpolation for better performance
-    mouseX += (targetX - mouseX) * 0.1;
-    mouseY += (targetY - mouseY) * 0.1;
-    
-    // Update CSS custom properties
-    document.documentElement.style.setProperty('--cursor-x', `${mouseX}px`);
-    document.documentElement.style.setProperty('--cursor-y', `${mouseY}px`);
-    
-    requestAnimationFrame(updateCursorGradient);
-}
-
-// Track mouse movement
-document.addEventListener('mousemove', (e) => {
-    targetX = e.clientX;
-    targetY = e.clientY;
-});
-
-// Handle mouse leave (fade out gradient)
-document.addEventListener('mouseleave', () => {
-    cursorGradient.style.opacity = '0';
-});
-
-// Handle mouse enter (fade in gradient)
-document.addEventListener('mouseenter', () => {
-    cursorGradient.style.opacity = '1';
-});
-
-// Start the animation loop
-updateCursorGradient();
-
-// ============================================
 // Scroll Animations with Intersection Observer
 // ============================================
 
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -30px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -68,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Observe skill cards separately for staggered animation
     const skillCards = document.querySelectorAll('.skill-card');
-    skillCards.forEach((card, index) => {
+    skillCards.forEach((card) => {
         observer.observe(card);
     });
     
@@ -88,7 +46,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 80; // Account for fixed nav
+            const offsetTop = target.offsetTop - 72; // Account for fixed nav
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
@@ -102,38 +60,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ============================================
 
 const nav = document.querySelector('.nav');
-let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
-    if (currentScroll > 100) {
-        nav.style.background = 'rgba(10, 10, 10, 0.95)';
+    if (currentScroll > 20) {
+        nav.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
     } else {
-        nav.style.background = 'rgba(10, 10, 10, 0.8)';
+        nav.style.boxShadow = 'none';
     }
-    
-    lastScroll = currentScroll;
-});
-
-// ============================================
-// Performance Optimization
-// ============================================
-
-// Throttle scroll events
-let ticking = false;
-
-function onScroll() {
-    if (!ticking) {
-        window.requestAnimationFrame(() => {
-            // Scroll-based animations can be added here
-            ticking = false;
-        });
-        ticking = true;
-    }
-}
-
-window.addEventListener('scroll', onScroll, { passive: true });
+}, { passive: true });
 
 // ============================================
 // Initialize on Load
@@ -148,4 +84,3 @@ window.addEventListener('load', () => {
         }, 100);
     }
 });
-
