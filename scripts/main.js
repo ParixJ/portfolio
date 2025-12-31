@@ -138,15 +138,87 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ============================================
+// Entry Animation
+// ============================================
+
+function initEntryAnimation() {
+    const entryAnimation = document.getElementById('entryAnimation');
+    const entryLogo = document.getElementById('entryLogo');
+    const navLogo = document.getElementById('navLogo');
+    
+    if (!entryAnimation || !entryLogo || !navLogo) {
+        // If elements don't exist, show nav logo immediately
+        if (navLogo) navLogo.classList.add('visible');
+        return;
+    }
+    
+    // Check if animation has already played this session
+    const hasAnimated = sessionStorage.getItem('entryAnimationPlayed');
+    
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (hasAnimated || prefersReducedMotion) {
+        // Skip animation, show nav logo immediately
+        entryAnimation.classList.add('hidden');
+        navLogo.classList.add('visible');
+        setTimeout(() => {
+            entryAnimation.style.display = 'none';
+        }, 400);
+        return;
+    }
+    
+    // Hide nav logo during animation
+    navLogo.classList.add('animating');
+    
+    // Calculate exact nav logo position
+    const navContainer = document.querySelector('.nav-container');
+    const navLogoRect = navLogo.getBoundingClientRect();
+    
+    // Set CSS custom properties for animation target
+    const targetTop = navLogoRect.top + navLogoRect.height / 2;
+    const targetLeft = navLogoRect.left;
+    
+    entryLogo.style.setProperty('--target-top', `${targetTop}px`);
+    entryLogo.style.setProperty('--target-left', `${targetLeft}px`);
+    
+    // Set animation delay (0.8-1.2 seconds)
+    const animationDelay = 1000; // 1 second
+    
+    setTimeout(() => {
+        // Start transition animation
+        entryAnimation.classList.add('animate-out');
+        
+        // Show nav logo when animation completes
+        setTimeout(() => {
+            navLogo.classList.remove('animating');
+            navLogo.classList.add('visible');
+            
+            // Hide overlay after transition
+            entryAnimation.classList.add('hidden');
+            setTimeout(() => {
+                entryAnimation.style.display = 'none';
+            }, 400);
+            
+            // Mark animation as played
+            sessionStorage.setItem('entryAnimationPlayed', 'true');
+        }, 800); // Match animation duration
+    }, animationDelay);
+}
+
+// ============================================
 // Initialize on Load
 // ============================================
 
 window.addEventListener('load', () => {
-    // Animate hero section immediately
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        setTimeout(() => {
+    // Initialize entry animation
+    initEntryAnimation();
+    
+    // Animate hero section after entry animation
+    setTimeout(() => {
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
             heroContent.classList.add('visible');
-        }, 100);
-    }
+        }
+    }, 2000);
 });
